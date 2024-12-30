@@ -1,0 +1,79 @@
+# Project Setup Instructions
+
+## Prerequisites
+
+- Ensure you have the following installed:
+  - Node.js (Recommended version: 16 or higher)
+  - npm (Node Package Manager)
+
+## Environment Configuration
+
+1. In the root directory of the project, create a `.env` file.
+2. Add the following variables to the `.env` file:
+
+   JWT_SECRET=your_jwt_secret_here
+
+   DB_HOST=your_database_host_here
+   DB_USER=your_database_user_here
+   DB_PASSWORD=your_database_password_here
+   DB_NAME=your_database_name_here
+
+   (Replace the placeholders with actual values for your environment.)
+
+## Installation Instructions
+
+1. Install backend dependencies:
+
+   - Navigate to the project root in the terminal and run:
+     `npm install`
+
+2. Install frontend dependencies:
+   - Navigate to the `client` directory:
+     `cd client`
+   - Run:
+     `npm install`
+
+## Database Initialization
+
+1. Synchronize the database tables:
+
+   - Make a GET request to `/api/sync` to create and synchronize all required database tables.
+   - This ensures the database schema is properly set up.
+
+2. Seed the database:
+   - Make a GET request to `/api/seeder` to populate the database with initial data.
+   - This includes creating a default admin user for accessing the system.
+
+## Starting the Application
+
+1. Start the backend server:
+
+   - From the root directory, run:
+     `npm start`
+
+2. Start the frontend client:
+
+   - Navigate to the `client` directory:
+     `cd client`
+   - Run:
+     `npm start`
+
+3. Open your browser and visit:
+   `http://localhost:<PORT>`
+   (Replace `<PORT>` with the actual port number configured for your frontend application.)
+
+## Additional Notes
+
+- Ensure your database service is running and accessible using the provided environment configuration.
+- The `/api/sync` endpoint initializes the database schema, so it must be run first.
+- The `/api/seeder` endpoint sets up initial data, including the admin user.
+- If you encounter issues, verify the `.env` file and repeat the setup steps.
+
+## Commands Summary
+
+- Install backend dependencies: `npm install`
+- Install frontend dependencies: `cd client && npm install`
+- Start backend server: `npm start`
+- Start frontend client: `cd client && npm start`
+- Sync database tables: GET `/api/sync`
+- Seed database with initial data: GET `/api/seeder`
